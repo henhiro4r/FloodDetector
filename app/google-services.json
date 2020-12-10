@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "94878631563",
+    "firebase_url": "https://flooddetector-92b5e-default-rtdb.firebaseio.com",
+    "project_id": "flooddetector-92b5e",
+    "storage_bucket": "flooddetector-92b5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94878631563:android:7eef1053a55a8d4573b68e",
+        "android_client_info": {
+          "package_name": "com.example.flooddetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94878631563-vvqu1ahm9vp83tj1vbjsb34483erlu4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrQlXHwrFH5MB200UE8LlHfpxHDILZ75E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94878631563-vvqu1ahm9vp83tj1vbjsb34483erlu4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
