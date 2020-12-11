@@ -44,13 +44,27 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("test");
+        DatabaseReference indicator = database.getReference("test");
+        DatabaseReference currLevel = database.getReference("currlevel");
 
         rvIndicators.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         initIndicators();
 
-        reference.addValueEventListener(new ValueEventListener() {
+        currLevel.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue().toString() + " m";
+                tvCurrentWaterLevel.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "onCancelled: ", error.toException());
+            }
+        });
+
+        indicator.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String value = snapshot.getValue(String.class);
