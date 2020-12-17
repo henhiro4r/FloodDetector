@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">FloodDetector</string>
+    <string name="app_name">Flood Detector</string>
+    <string name="background">Background</string>
+    <string name="current_water_level">Current water level</string>
+    <string name="water_level_placeholder">- m</string>
+    <string name="indicator_placeholder">-</string>
+    <string name="height_left_placeholder">with total - m height</string>
+    <string name="safe_description"><b>Your water level is safe</b>\n\nNo need to worry about this, but stay alert if something unusal happens.</string>
+    <string name="alert_description"><b>Your water level is safe</b>\n\nNo need to worry about this, but stay alert if something unusal happens.</string>
+    <string name="danger_description"><b>Your water level is safe</b>\n\nNo need to worry about this, but stay alert if something unusal happens.</string>
+    <string name="indicators">Indicators</string>
+    <string name="in_safe_desc">Water level indicates around 5% of total river height or 10%, if few materials found above the water.</string>
+    <string name="safe">Safe</string>
+
+    <string-array name="indicator_type">
+        <item>Safe</item>
+        <item>Alert</item>
+        <item>Danger</item>
+    </string-array>
+    <string-array name="indicator_desc">
+        <item>Water level indicates around 5% of total river height or 10%, if few materials found above the water.</item>
+        <item>Water level indicates around 50% of total river height or 50%, if few materials found above the water.</item>
+        <item>Water level indicates around 90% of total river height or 80%, if few materials found above the water.</item>
+    </string-array>
 </resources>
