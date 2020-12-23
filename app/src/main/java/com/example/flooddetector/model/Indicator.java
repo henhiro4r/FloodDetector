@@ -2,18 +2,24 @@ package com.example.flooddetector.model;
 
 public class Indicator {
     private String type;
-    private String description;
+    private String min;
+    private String max;
 
-    public Indicator(String type, String description) {
+    public Indicator(String type, String min, String max) {
         this.type = type;
-        this.description = description;
+        this.min = min;
+        this.max = max;
     }
 
     public String getType() {
         return type;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMin() {
+        return min;
+    }
+
+    public String getMax() {
+        return max;
     }
 }
