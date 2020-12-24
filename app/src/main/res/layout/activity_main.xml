@@ -20,7 +20,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/backgroundImage"
         android:layout_width="0dp"
         android:layout_height="250dp"
         android:contentDescription="@string/background"
@@ -68,7 +67,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLiveIndicators" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvIndicatorDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -101,7 +99,6 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvIndicators"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

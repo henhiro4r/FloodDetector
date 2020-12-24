@@ -6,7 +6,6 @@
     <string name="indicator_placeholder">-</string>
     <string name="height_left_placeholder">with total height of 15 cm</string>
     <string name="indicators">Indicators</string>
-    <string name="in_safe_desc">Water level indicates around 5% of total river height or 10%, if few materials found above the water.</string>
 
     <string name="min">Min</string>
     <string name="max">Max</string>

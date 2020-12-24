@@ -1,14 +1,13 @@
 package com.example.flooddetector;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.flooddetector.adapter.IndicatorAdapter;
 import com.google.firebase.database.DataSnapshot;

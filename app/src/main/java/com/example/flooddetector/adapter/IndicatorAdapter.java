@@ -49,8 +49,8 @@ public class IndicatorAdapter extends RecyclerView.Adapter<IndicatorAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Indicator indicator = listData.get(position);
         holder.tvIndicatorType.setText(indicator.getType());
-        holder.tvIndicatorMax.setText(indicator.getMin());
-        holder.tvIndicatorMin.setText(indicator.getMax());
+        holder.tvIndicatorMin.setText(indicator.getMin());
+        holder.tvIndicatorMax.setText(indicator.getMax());
         if (indicator.getType().equalsIgnoreCase("safe")) {
             holder.cvIndicatorColor.setCardBackgroundColor(context.getResources().getColor(R.color.green));
         } else if (indicator.getType().equalsIgnoreCase("alert")) {

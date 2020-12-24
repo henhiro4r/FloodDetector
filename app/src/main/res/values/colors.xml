@@ -2,7 +2,6 @@
 <resources>
     <color name="primary">#13A0A9</color>
     <color name="primary_dark">#13A0A9</color>
-    <color name="cyan">#C8FFFC</color>
     <color name="dak_brown">#585858</color>
     <color name="red">#FF4141</color>
     <color name="green">#039712</color>
