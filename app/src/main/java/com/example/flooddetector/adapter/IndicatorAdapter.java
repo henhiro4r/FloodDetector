@@ -21,18 +21,18 @@ public class IndicatorAdapter extends RecyclerView.Adapter<IndicatorAdapter.View
 
     private Context context;
     private List<Indicator> listData = new ArrayList<>();
-    private String[] indicatorType, indicatorDesc;
+    private String[] indicatorType, indicatorMin, indicatorMax;
 
     public IndicatorAdapter(Context context) {
         this.context = context;
         indicatorType = context.getResources().getStringArray(R.array.indicator_type);
-        indicatorDesc = context.getResources().getStringArray(R.array.indicator_desc);
-
+        indicatorMin = context.getResources().getStringArray(R.array.indicator_min);
+        indicatorMax = context.getResources().getStringArray(R.array.indicator_max);
     }
 
     public void setListData() {
         for (int i = 0; i < indicatorType.length; i++) {
-            Indicator indicator = new Indicator(indicatorType[i], indicatorDesc[i]);
+            Indicator indicator = new Indicator(indicatorType[i], indicatorMin[i], indicatorMax[i]);
             listData.add(indicator);
         }
         notifyDataSetChanged();
@@ -49,7 +49,8 @@ public class IndicatorAdapter extends RecyclerView.Adapter<IndicatorAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Indicator indicator = listData.get(position);
         holder.tvIndicatorType.setText(indicator.getType());
-        holder.tvIndicatorDesc.setText(indicator.getDescription());
+        holder.tvIndicatorMin.setText(indicator.getMin());
+        holder.tvIndicatorMax.setText(indicator.getMax());
         if (indicator.getType().equalsIgnoreCase("safe")) {
             holder.cvIndicatorColor.setCardBackgroundColor(context.getResources().getColor(R.color.green));
         } else if (indicator.getType().equalsIgnoreCase("alert")) {
@@ -67,13 +68,14 @@ public class IndicatorAdapter extends RecyclerView.Adapter<IndicatorAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView cvIndicatorColor;
-        TextView tvIndicatorType, tvIndicatorDesc;
+        TextView tvIndicatorType, tvIndicatorMin, tvIndicatorMax;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             cvIndicatorColor = itemView.findViewById(R.id.cvIndicatorColor);
             tvIndicatorType = itemView.findViewById(R.id.tvIndicatorType);
-            tvIndicatorDesc = itemView.findViewById(R.id.tvIndicatorDesc);
+            tvIndicatorMin = itemView.findViewById(R.id.tvIndicatorMin);
+            tvIndicatorMax = itemView.findViewById(R.id.tvIndicatorMax);
         }
     }
 }

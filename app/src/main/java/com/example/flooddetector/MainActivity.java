@@ -1,14 +1,13 @@
 package com.example.flooddetector;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.flooddetector.adapter.IndicatorAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +15,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference indicator = database.getReference("test");
         DatabaseReference currLevel = database.getReference("currlevel");
 
         rvIndicators.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
@@ -54,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
         currLevel.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String value = snapshot.getValue().toString() + " m";
+                String value = Objects.requireNonNull(snapshot.getValue()).toString() + " cm";
                 tvCurrentWaterLevel.setText(value);
+                setIndicatorType(Integer.parseInt(snapshot.getValue().toString()));
             }
 
             @Override
@@ -63,20 +64,22 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, "onCancelled: ", error.toException());
             }
         });
+    }
 
-        indicator.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String value = snapshot.getValue(String.class);
-                tvLiveIndicators.setText(value);
-                Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "onCancelled: ", error.toException());
-            }
-        });
+    private void setIndicatorType(Integer level) {
+        if (level <= 4) {
+            tvLiveIndicators.setText(getString(R.string.safe));
+            tvLiveDesc.setText(getString(R.string.safe_description));
+            tvLiveIndicators.setTextColor(getResources().getColor(R.color.green));
+        } else if (level <= 10) {
+            tvLiveIndicators.setText(getString(R.string.alert));
+            tvLiveDesc.setText(getString(R.string.alert_description));
+            tvLiveIndicators.setTextColor(getResources().getColor(R.color.yellow));
+        } else {
+            tvLiveIndicators.setText(getString(R.string.danger));
+            tvLiveDesc.setText(getString(R.string.danger_description));
+            tvLiveIndicators.setTextColor(getResources().getColor(R.color.red));
+        }
     }
 
     private void initIndicators() {
